@@ -8,7 +8,6 @@ import '../../../../../../../data/api/model/sources_response/source.dart';
 
 class ArticleList extends StatelessWidget {
   ArticleList({super.key, required this.source});
-
   Source source;
 
   @override
@@ -30,7 +29,8 @@ class ArticleList extends StatelessWidget {
               child: ListView.builder(
             itemBuilder: (context, index) => InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, RoutesManager.itemDetails);
+                  Navigator.pushNamed(context, RoutesManager.itemDetails,
+                      arguments: articles[index]);
                 },
                 child: ArticleItem(article: articles[index])),
             itemCount: articles.length,
