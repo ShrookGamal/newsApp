@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
+import 'package:timeago/timeago.dart' as timeago;
+
 import '../../../../../../../data/api/model/articles_response/article.dart';
 
 class ArticleItem extends StatelessWidget {
@@ -52,7 +54,7 @@ class ArticleItem extends StatelessWidget {
               height: 4.h,
             ),
             Text(
-              article.publishedAt ?? '',
+              timeago.format(DateTime.parse(article.publishedAt!)),
               textAlign: TextAlign.end,
               style: GoogleFonts.inter(
                   color: Color(0XFFA3A3A3),
